@@ -10993,7 +10993,7 @@ __metadata:
     react: 19.0.0
     react-native: 0.79.2
     react-native-builder-bob: ^0.38.3
-    react-test-renderer: ^19.1.0
+    react-test-renderer: ^19.0.0
     release-it: ^17.10.0
     turbo: ^1.10.7
     typescript: ^5.2.2
@@ -11120,7 +11120,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-test-renderer@npm:^19.1.0":
+"react-test-renderer@npm:^19.0.0":
   version: 19.1.0
   resolution: "react-test-renderer@npm:19.1.0"
   dependencies:
