@@ -1,5 +1,5 @@
-import ImpressionTracker from './NativeImpressionTracker';
+// eslint-disable-next-line prettier/prettier
+import { ImpressionTracker } from "./impression-tracker";
 
-export function multiply(a: number, b: number): number {
-  return ImpressionTracker.multiply(a, b);
-}
+
+export default ImpressionTracker;

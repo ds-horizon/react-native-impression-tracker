@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImpressionTracker Snapshot should match the snapshot 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "position": "relative",
+      }
+    }
+  >
+    <View
+      onTouchStart={[Function]}
+      style={
+        {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        collapsable={false}
+        testID="impression-root-view"
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            [
+              {
+                "fontFamily": "Roboto-Medium",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 0,
+                "lineHeight": 20,
+                "textAlign": "left",
+                "writingDirection": "ltr",
+              },
+              undefined,
+              {
+                "color": "#202C3D",
+              },
+            ]
+          }
+        >
+          Snapshot Test
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
