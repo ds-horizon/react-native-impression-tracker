@@ -7,7 +7,9 @@ import {
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
-import ImpressionTracker from 'react-native-impression-tracker';
+import ImpressionTracker, {
+  AdsClickedInterface,
+} from 'react-native-impression-tracker';
 
 export default function Example3(): JSX.Element {
   const onImpressionTrigger = (): void => {
@@ -15,12 +17,7 @@ export default function Example3(): JSX.Element {
     Alert.alert('Impression', 'Middle component viewed!');
   };
 
-  const onRealEstateClicked = (params: {
-    adId: string;
-    adType: string;
-    advertiserName: string;
-    deepLink: string;
-  }): void => {
+  const onRealEstateClicked = (params: AdsClickedInterface): void => {
     console.log('Middle component clicked with params:', params);
     Alert.alert('Clicked', `Params: ${JSON.stringify(params)}`);
   };

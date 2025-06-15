@@ -1,18 +1,17 @@
-import { useCallback, FC } from 'react';
-
+import { FC, useCallback } from 'react';
 import { View } from 'react-native';
-
 import { ImpressionTrackerContext } from './hooks/useImpressionTracker';
 import { useVisibilityTracker } from './hooks/useVisibilityTracker';
-import { AdsClickedInterface, ImpressionTrackerProps } from './interface';
+import { AdsClickedInterface, ImpressionTrackerPropsI } from './interface';
 
-const ImpressionTracker: FC<ImpressionTrackerProps> = ({
+const ImpressionTracker: FC<ImpressionTrackerPropsI> = ({
   children,
   rootMargin,
   desiredImpressionViewability = 0.5,
   desiredImpressionTime = 1000,
   onImpressionTrigger,
   onRealEstateClicked,
+  style,
 }) => {
   const visibilityTrackerView = useVisibilityTracker({
     rootMargin,
@@ -34,6 +33,7 @@ const ImpressionTracker: FC<ImpressionTrackerProps> = ({
         collapsable={false}
         ref={visibilityTrackerView}
         testID="impression-root-view"
+        style={style}
       >
         {children}
       </View>

@@ -10,7 +10,9 @@ import {
   StyleSheet,
   ListRenderItemInfo,
 } from 'react-native';
-import ImpressionTracker from 'react-native-impression-tracker';
+import ImpressionTracker, {
+  AdsClickedInterface,
+} from 'react-native-impression-tracker';
 
 const ITEMS = Array.from({ length: 15 }, (_, i) => i + 1);
 
@@ -24,12 +26,7 @@ export default function Example1(): JSX.Element {
     Alert.alert('Impression', '12th card viewed!');
   };
 
-  const onRealEstateClicked = (params: {
-    adId: string;
-    adType: string;
-    advertiserName: string;
-    deepLink: string;
-  }): void => {
+  const onRealEstateClicked = (params: AdsClickedInterface): void => {
     Alert.alert('Clicked', `Card clicked: ${JSON.stringify(params)}`);
   };
 
