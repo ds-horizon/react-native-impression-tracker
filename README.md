@@ -1,6 +1,6 @@
-# react-native-impression-tracker
+# 📊 react-native-impression-tracker
 
-A lightweight, customizable React Native library for tracking **view-based impressions** and **ad interactions** within scrollable views.
+A **lightweight, flexible React Native library** for tracking **view-based impressions** and **user interactions** across all types of layouts — including scrollable views, static screens, tabs, carousels, and deeply nested subcomponents.
 
 ---
 
@@ -9,9 +9,8 @@ A lightweight, customizable React Native library for tracking **view-based impre
 - 🔍 Viewability-based impression tracking
 - ⏱️ Configurable viewability threshold and dwell time
 - 🧠 Context-driven click/impression tracking
-- 🧩 Simple integration with any scrollable or list-based UI
-- ⚛️ React Native compatible (Android & iOS)
-
+- 🧩 Compatible with FlatList, ScrollView, Tabs, Carousels, and Static Screens
+- ⚛️ Fully React Native compatible (Android & iOS)
 ---
 
 ## 📦 Installation
@@ -65,31 +64,34 @@ export default ExampleScreen;
 ## 📸 Screenshots
 
 ### 🖼️ Example 1: Home - Impression Tracker Entry Points
-![Home - Impression Tracker](example/screenshots/Screenshot_1750018203.png)
+<img src="example/screenshots/Screenshot_1750018203.png" width="250" alt="Home - Impression Tracker" />
 
 ### 🖼️ Example 2: Tracking SubComponent inside ScrollView
-![Subcomponent inside ScrollView](example/screenshots/Screenshot_1750018241.png)
+<img src="example/screenshots/Screenshot_1750018241.png" width="250" alt="Subcomponent inside ScrollView"/>
+
 
 ### 🖼️ Example 3: Tracking in Tab
-![Tracking in Tab](example/screenshots/Screenshot_1750018241.png)
-
+<img src="example/screenshots/Screenshot_1750019094.png" width="250" alt="Tracking in Tab"/>
 
 ## 📚 API Reference
 
 ### `<ImpressionTracker />`
 
-Wrap any component to track its visibility and impressions.
+Wrap any component to track its visibility and user interaction.
 
 #### Props
 
-| Prop                          | Type                                      | Default | Description                                                                 |
-|-------------------------------|-------------------------------------------|---------|-----------------------------------------------------------------------------|
-| `onImpressionTrigger`         | `() => void`                              | —       | Called when the component is visible for the required time and viewability. |
-| `onRealEstateClicked`         | `(params: AdsClickedInterface) => void`   | —       | Callback triggered when `handleClickForImpression` is called from a child.  |
-| `desiredImpressionTime`       | `number`                                  | `1000`  | Duration in milliseconds the component must be visible to count as an impression. |
-| `desiredImpressionViewability`| `number`                                  | `0.5`   | Proportion (0–1) of the view that must be visible (e.g. `0.5` = 50%).       |
-| `rootMargin`                  | `number`                                  | `0`     | Optional margin around the component for visibility detection (in px).     |
-| `style`                       | `ViewStyle`                               | —       | Optional style for the internal wrapper `<View>`.                           |
+| Prop                         | Type                                                                        | Default | Description                                                                 |
+|------------------------------|-----------------------------------------------------------------------------|---------|-----------------------------------------------------------------------------|
+| `children`                   | `React.ReactNode`                                                           | —       | Elements to be wrapped and tracked.                                         |
+| `rootMargin`                 | `{ top?: number; bottom?: number; left?: number; right?: number; }`         | `{}`    | Optional margins around the view to adjust visibility bounds.              |
+| `desiredImpressionViewability` | `number`                                                                 | `0.5`   | Portion (0–1) of the component that must be visible to count as an impression. |
+| `desiredImpressionTime`     | `number`                                                                    | `1000`  | Time in milliseconds the component must remain visible to trigger impression. |
+| `onImpressionTrigger`       | `() => void`                                                                | —       | Callback fired after viewability and dwell time conditions are met.        |
+| `onRealEstateClicked`       | `(params: AdsClickedInterface) => void`                                     | —       | Callback fired when the user interacts (clicks/taps) on the tracked area.  |
+| `style`                     | `ViewStyle`                             |
+
+
 
 ## 🧠 Context Hook: `useImpressionTracker`
 
@@ -120,7 +122,6 @@ const AdTile = () => {
 };
 
 ```
-
 
 ## 🧪 Testing & Coverage
 
