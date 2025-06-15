@@ -67,11 +67,11 @@ export default ExampleScreen;
 <img src="example/screenshots/Screenshot_1750018203.png" width="250" alt="Home - Impression Tracker" />
 
 ### 🖼️ Example 2: Tracking SubComponent inside ScrollView
-<img src="example/screenshots/Screenshot_1750018241.png" width="250" alt="Subcomponent inside ScrollView"/>
+<img src="example/screenshots/Screenshot_1750018271.png" width="250" alt="Subcomponent inside ScrollView"/>
 
 
 ### 🖼️ Example 3: Tracking in Tab
-<img src="example/screenshots/Screenshot_1750019094.png" width="250" alt="Tracking in Tab"/>
+<img src="example/screenshots/Screenshot_1750018241.png" width="250" alt="Tracking in Tab"/>
 
 ## 📚 API Reference
 
