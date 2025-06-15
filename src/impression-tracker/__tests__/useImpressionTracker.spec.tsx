@@ -1,5 +1,5 @@
 import { Text, TouchableNativeFeedback } from 'react-native';
-import TestRenderer from 'react-test-renderer';
+import TestRenderer, { act } from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react-native';
 
 import {
@@ -8,6 +8,7 @@ import {
 } from '../hooks/useImpressionTracker';
 
 import { CLICK_IMPRESSION_DETAILS } from './__mocks__/ImpressionTracker.mock';
+import { NOT_IN_PROVIDER_ERROR } from '../constants';
 
 const TestComponent = () => {
   const { handleClickForImpression } = useImpressionTracker();
@@ -36,14 +37,14 @@ describe('useImpressionTracker hook', () => {
   });
 
   it('should throw error when used outside of a provider', () => {
-    // Suppress expected error logging for this test.
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     expect(() => {
-      TestRenderer.create(<TestComponent />);
-    }).toThrow(
-      'useImpressionTracker must be used within an ImpressionTrackerProvider'
-    );
-    (console.error as jest.Mock).mockRestore();
+      act(() => {
+        TestRenderer.create(<TestComponent />);
+      });
+    }).toThrow(NOT_IN_PROVIDER_ERROR);
+
+    errorSpy.mockRestore();
   });
 });

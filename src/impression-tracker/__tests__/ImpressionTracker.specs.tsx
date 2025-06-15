@@ -1,17 +1,12 @@
 import React from 'react';
-
-import { View, Text, Dimensions } from 'react-native';
-
+import { View, Text, Dimensions, InteractionManager } from 'react-native';
 import { render, act } from '@testing-library/react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { ImpressionTracker } from '../ImpressionTracker';
 import { ImpressionTrackerContext } from '../hooks/useImpressionTracker';
 import { AdsClickedInterface } from '../interface';
 import { CLICK_IMPRESSION_DETAILS } from './__mocks__/ImpressionTracker.mock';
-
-jest.mock('react-native/Libraries/Interaction/InteractionManager', () => ({
-  runAfterInteractions: (cb: () => void) => cb(),
-}));
 
 jest.useFakeTimers();
 
@@ -21,6 +16,20 @@ describe('ImpressionTracker Component', () => {
 
   beforeEach(() => {
     fakeTime = 0;
+
+    jest
+      .spyOn(InteractionManager, 'runAfterInteractions')
+      .mockImplementation((cb) => {
+        if (typeof cb === 'function') {
+          cb();
+        }
+        return {
+          then: (resolve: any) => Promise.resolve().then(resolve),
+          done: () => {},
+          cancel: () => {},
+        };
+      });
+
     jest.spyOn(Date, 'now').mockImplementation(() => fakeTime);
 
     measureCallbackValues = { pageX: 10, pageY: 10, width: 200, height: 200 };
@@ -45,8 +54,8 @@ describe('ImpressionTracker Component', () => {
   });
 
   afterEach(() => {
+    jest.clearAllMocks();
     jest.clearAllTimers();
-    jest.restoreAllMocks();
   });
 
   it('should not trigger impression if component is not visible', () => {
@@ -55,12 +64,14 @@ describe('ImpressionTracker Component', () => {
     measureCallbackValues = { pageX: 10, pageY: 10, width: 0, height: 200 };
 
     render(
-      <ImpressionTracker
-        onImpressionTrigger={onImpressionTrigger}
-        desiredImpressionTime={1000}
-      >
-        <Text>Not Visible Component</Text>
-      </ImpressionTracker>
+      <NavigationContainer>
+        <ImpressionTracker
+          onImpressionTrigger={onImpressionTrigger}
+          desiredImpressionTime={1000}
+        >
+          <Text>Not Visible Component</Text>
+        </ImpressionTracker>
+      </NavigationContainer>
     );
 
     act(() => {
@@ -84,9 +95,11 @@ describe('ImpressionTracker Component', () => {
     };
 
     render(
-      <ImpressionTracker onRealEstateClicked={onRealEstateClicked}>
-        <Consumer />
-      </ImpressionTracker>
+      <NavigationContainer>
+        <ImpressionTracker onRealEstateClicked={onRealEstateClicked}>
+          <Consumer />
+        </ImpressionTracker>
+      </NavigationContainer>
     );
 
     act(() => {
