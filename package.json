@@ -37,7 +37,9 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "codegen": "react-native codegen",
+    "generate": "yarn codegen"
   },
   "keywords": [
     "react-native",
@@ -135,6 +137,13 @@
     "source": "src",
     "output": "lib",
     "targets": [
+      "codegen",
+      [
+        "commonjs",
+        {
+          "esm": true
+        }
+      ],
       [
         "module",
         {
@@ -144,7 +153,8 @@
       [
         "typescript",
         {
-          "project": "tsconfig.build.json"
+          "project": "tsconfig.build.json",
+          "esm": true
         }
       ]
     ]

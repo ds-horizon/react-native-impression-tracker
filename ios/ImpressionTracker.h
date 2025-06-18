@@ -1,5 +1,5 @@
 
-#import <ImpressionTracker/RNImpressionTrackerSpec.h>
+#import <RNImpressionTrackerSpec.h>
 
 @interface ImpressionTracker : NSObject <NativeImpressionTrackerSpec>
 
