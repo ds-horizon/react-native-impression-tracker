@@ -1,4 +1,4 @@
-# 📊 react-native-impression-tracker
+# 📊 React Native Impression Tracker
 
 A **lightweight, flexible React Native library** for tracking **view-based impressions** and **user interactions** across all types of layouts — including scrollable views, static screens, tabs, carousels, and deeply nested subcomponents.
 

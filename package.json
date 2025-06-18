@@ -154,7 +154,6 @@
     "type": "modules",
     "jsSrcsDir": "src",
     "outputDir": {
-      "ios": "ios/generated",
       "android": "android/generated"
     },
     "android": {
