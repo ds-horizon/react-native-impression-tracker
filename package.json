@@ -37,7 +37,9 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "codegen": "react-native codegen",
+    "generate": "yarn codegen"
   },
   "keywords": [
     "react-native",
@@ -58,31 +60,41 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
     "@commitlint/config-conventional": "^19.6.0",
     "@eslint/compat": "^1.2.7",
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native-community/cli": "18.0.0",
+    "@react-native/babel-preset": "^0.80.0",
     "@react-native/eslint-config": "^0.78.0",
+    "@react-navigation/native": "*",
     "@release-it/conventional-changelog": "^9.0.2",
+    "@testing-library/react-native": "^13.2.0",
     "@types/jest": "^29.5.5",
     "@types/react": "^19.0.0",
+    "@types/react-test-renderer": "^19.0.0",
+    "babel-jest": "^30.0.0",
     "commitlint": "^19.6.1",
     "del-cli": "^5.1.0",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "jest": "^29.7.0",
+    "jest": "^30.0.0",
+    "metro-react-native-babel-preset": "^0.77.0",
     "prettier": "^3.0.3",
     "react": "19.0.0",
     "react-native": "0.79.2",
     "react-native-builder-bob": "^0.38.3",
+    "react-test-renderer": "19.0.0",
     "release-it": "^17.10.0",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
+    "@react-navigation/native": "*",
     "react": "*",
     "react-native": "*"
   },
@@ -90,13 +102,6 @@
     "example"
   ],
   "packageManager": "yarn@3.6.1",
-  "jest": {
-    "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
-      "<rootDir>/lib/"
-    ]
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -132,7 +137,12 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      "codegen",
+      [
+        "commonjs",
+        {
+          "esm": true
+        }
+      ],
       [
         "module",
         {
@@ -142,7 +152,8 @@
       [
         "typescript",
         {
-          "project": "tsconfig.build.json"
+          "project": "tsconfig.build.json",
+          "esm": true
         }
       ]
     ]
@@ -152,13 +163,11 @@
     "type": "modules",
     "jsSrcsDir": "src",
     "outputDir": {
-      "ios": "ios/generated",
       "android": "android/generated"
     },
     "android": {
       "javaPackageName": "com.impressiontracker"
-    },
-    "includesGeneratedCode": true
+    }
   },
   "create-react-native-library": {
     "type": "turbo-module",

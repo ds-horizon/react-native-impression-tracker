@@ -1,5 +1,13 @@
-import ImpressionTracker from './NativeImpressionTracker';
+import { ImpressionTracker } from './impression-tracker';
+import {
+  VisibilityTrackerHookProps,
+  ImpressionTrackerPropsI,
+  AdsClickedInterface,
+} from './impression-tracker/interface';
 
-export function multiply(a: number, b: number): number {
-  return ImpressionTracker.multiply(a, b);
-}
+export default ImpressionTracker;
+export {
+  VisibilityTrackerHookProps,
+  ImpressionTrackerPropsI,
+  AdsClickedInterface,
+};
