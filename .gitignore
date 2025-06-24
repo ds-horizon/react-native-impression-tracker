@@ -86,3 +86,5 @@ android/generated
 nitrogen/
 
 example/ios/.xcode.env.local
+
+.npmrc
