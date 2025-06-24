@@ -1,12 +1,12 @@
 {
-  "name": "react-native-impression-tracker",
-  "version": "0.1.0",
+  "name": "@d11/react-native-impression-tracker",
+  "version": "0.1.2",
   "description": "A lightweight React Native SDK for tracking impressions of screen elements. This library allows developers to track when specific components or views are visible on the screen, enabling precise measurement of user engagement with banners, ads, or other content. Easily integrate with your app's analytics system to monitor the performance of key UI elements.",
   "source": "./src/index.tsx",
   "main": "./lib/module/index.js",
   "exports": {
     ".": {
-      "types": "./lib/typescript/src/index.d.ts",
+      "types": "./lib/typescript/module/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
     "./package.json": "./package.json"
@@ -57,7 +57,8 @@
   },
   "homepage": "https://github.com/dream-sports-labs/react-native-impression-tracker/react-native-impression-tracker#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "restricted"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
