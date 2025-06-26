@@ -141,6 +141,17 @@ yarn test
 npm test
 ```
 
+## Community Discord
+
+Join the [DreamSportsLabs Community](https://discord.com/channels/1317172052179943504/1317172052179943507) to chat about flash-client or other DreamSportsLabs libraries.
+
+
+## Created by DreamSportsLabs
+
+<img src="media/logo.png" width="40" alt="Flash Banner" />
+
+DreamSportsLabs is committed to building open-source tools that empower developers and businesses. Learn more about us at our website.
+
 ## 🤝 Contributing
 
 Pull requests and contributions are welcome!
@@ -152,3 +163,10 @@ To contribute:
 
    ```bash
    git checkout -b feature/my-awesome-feature
+   ```
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
