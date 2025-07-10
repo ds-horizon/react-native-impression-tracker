@@ -13,23 +13,12 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "src",
-    "lib",
-    "android",
+    "lib/commonjs",
+    "android/src",
     "ios",
-    "cpp",
-    "*.podspec",
-    "react-native.config.js",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
-    "!**/.*"
+    "src",
+    "ImpressionTracker.podspec",
+    "react-native.config.js"
   ],
   "scripts": {
     "example": "yarn workspace react-native-impression-tracker-example",
