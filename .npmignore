@@ -1,0 +1,15 @@
+# Exclude build artifacts you don't want
+lib/module/
+lib/typescript/
+*.map
+
+# Exclude tests and snapshots
+__tests__/
+*.spec.ts
+*.spec.tsx
+*.snap
+
+# Exclude example app
+example/
+
+ios/generated/
