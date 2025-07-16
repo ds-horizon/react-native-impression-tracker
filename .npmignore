@@ -11,3 +11,5 @@ __tests__/
 
 # Exclude example app
 example/
+
+ios/generated/
