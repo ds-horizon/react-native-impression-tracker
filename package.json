@@ -48,14 +48,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dream-sports-labs/react-native-impression-tracker/react-native-impression-tracker.git"
+    "url": "git+https://github.com/ds-horizon/react-native-impression-tracker/react-native-impression-tracker.git"
   },
-  "author": "sumitbudhiraja-d11 <sumit.budhiraja@dream11.com> (https://github.com/dream-sports-labs/react-native-impression-tracker)",
+  "author": "sumitbudhiraja-d11 <sumit.budhiraja@dream11.com> (https://github.com/ds-horizon/react-native-impression-tracker)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dream-sports-labs/react-native-impression-tracker/react-native-impression-tracker/issues"
+    "url": "https://github.com/ds-horizon/react-native-impression-tracker/react-native-impression-tracker/issues"
   },
-  "homepage": "https://github.com/dream-sports-labs/react-native-impression-tracker/react-native-impression-tracker#readme",
+  "homepage": "https://github.com/ds-horizon/react-native-impression-tracker/react-native-impression-tracker#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "restricted"
